@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enter Refresh Token</title>
+</head>
+<body>
+  <h3>Enter Refresh Token:</h3>
+  <input id="refreshTokenInput" type="text" placeholder="Refresh Token">
+  <button onclick="submitToken()">Submit</button>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    function submitToken() {
+      const refreshToken = document.getElementById('refreshTokenInput').value;
+      ipcRenderer.send('refresh-token', refreshToken);
+    }
+  </script>
+</body>
+</html>
